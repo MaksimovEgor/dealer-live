@@ -2352,15 +2352,16 @@ body._lock::after {
 
 /* --------------buisnessman---------- */
 .buisnessman {
-  margin-top: 95px;
-  background: #3da586;
+  margin-top: 75px;
 }
 @media all and (min-width: 767px) {
   .buisnessman {
     margin-top: 110px;
+    background: #3da586;
   }
 }
 .buisnessman__body {
+  background: #3da586;
   border-radius: 20px;
   padding: 36px 30px 24px;
   width: 90%;
@@ -2380,6 +2381,7 @@ body._lock::after {
 }
 @media all and (min-width: 767px) {
   .buisnessman__body {
+    background: unset;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
@@ -2827,8 +2829,10 @@ body._lock::after {
     margin-top: 80px;
   }
 }
-.unique__item:nth-of-type(2) {
-  width: 80%;
+@media all and (min-width: 767px) {
+  .unique__item:nth-of-type(2) {
+    width: 80%;
+  }
 }
 @media all and (min-width: 767px) {
   .unique__item:last-of-type {
@@ -3139,12 +3143,18 @@ body._lock::after {
       -ms-flex-pack: center;
           justify-content: center;
   position: relative;
+  margin-top: 29px;
   /*   &._error .form__checkbox__label::before {
     border: 1px solid #d32416;
   } */
   /*   &__input:checked + .form__checkbox__label::after {
     transform: scale(1);
   } */
+}
+@media all and (min-width: 767px) {
+  .form__checkbox {
+    margin-top: 0px;
+  }
 }
 .form__checkbox__input {
   display: none;
@@ -3160,6 +3170,7 @@ body._lock::after {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
+  gap: 11px;
   font-size: calc(
     12px + 2 * ((100vw - 360px) / 664)
   );
@@ -3170,6 +3181,7 @@ body._lock::after {
   .form__checkbox__label {
     max-width: 345px;
     margin: 0 auto;
+    gap: 0;
   }
 }
 @media all and (min-width: 1024px) {
