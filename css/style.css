@@ -3047,9 +3047,6 @@ body._lock::after {
 .form__item._error .form__popup {
   opacity: 1;
 }
-.form__item:focus .form__popup {
-  opacity: 0;
-}
 .form__label {
   font-size: calc(
     14px + 2 * ((100vw - 360px) / 664)
@@ -3141,17 +3138,16 @@ body._lock::after {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-}
-.form__checkbox._error .form__checkbox__label::before {
-  border: 1px solid #d32416;
+  position: relative;
+  /*   &._error .form__checkbox__label::before {
+    border: 1px solid #d32416;
+  } */
+  /*   &__input:checked + .form__checkbox__label::after {
+    transform: scale(1);
+  } */
 }
 .form__checkbox__input {
   display: none;
-}
-.form__checkbox__input:checked + .form__checkbox__label::after {
-  -webkit-transform: scale(1);
-      -ms-transform: scale(1);
-          transform: scale(1);
 }
 .form__checkbox__label {
   -webkit-user-select: none;
@@ -3200,6 +3196,14 @@ body._lock::after {
   margin: 0 10px 0 0;
   cursor: pointer;
 }
+.form__checkbox__label._active::after {
+  -webkit-transform: scale(0);
+      -ms-transform: scale(0);
+          transform: scale(0);
+}
+.form__checkbox__label._active::before {
+  border: 1px solid #d32416;
+}
 .form__checkbox__label::after {
   content: "";
   width: 16px;
@@ -3210,14 +3214,24 @@ body._lock::after {
   border-radius: 4px;
   background-color: #ade020;
   cursor: pointer;
-  -webkit-transform: scale(0);
-      -ms-transform: scale(0);
-          transform: scale(0);
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
   -webkit-transition: -webkit-transform 0.4s ease;
   transition: -webkit-transform 0.4s ease;
   -o-transition: transform 0.4s ease;
   transition: transform 0.4s ease;
   transition: transform 0.4s ease, -webkit-transform 0.4s ease;
+}
+
+.form__checkbox__wrapper {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+.form__checkbox__wrapper .form__checkbox__input {
+  position: relative;
+  z-index: 900;
 }
 
 /* ---------------footer------------- */
